@@ -69,3 +69,5 @@ Protocol files will the written into <code>/plants/proto</code> directory.
     <code> make docker_down </code>
 
 ***Note:each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution***
+
+TODO: ... Create SQL dump 

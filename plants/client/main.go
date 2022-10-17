@@ -24,8 +24,18 @@ func main() {
 
 	log.Printf("Connection established to %s \n", addr)
 	time.Sleep(time.Second) // temporary wait time for now
+
 	// create client service for accessing gRPC service to cockroach database.
 	plantServiceClient := pb.NewPlantServiceClient(conn)
+	// list plants already within database
 	listPlants(plantServiceClient)
-
+	// insert an individual plant.
+	plantId, _ := createPlant(plantServiceClient,
+		&pb.Plant{
+			CommonName: "False Rosemary",
+			Genus:      "Conradina",
+			Species:    "Canescens",
+		})
+	log.Printf("Plant with Id:%s, has been created\n",
+		plantId.Id)
 }

@@ -7,7 +7,7 @@ import pb "github.com/mbcarruthers/gRPCplants/plants/proto"
 // A good explanation of the latter can be found in the answers to this stackoverflow question.
 // https://stackoverflow.com/questions/64183794/why-do-the-go-generated-protobuf-files-contain-mutex-locks
 type Plant struct {
-	Id         string `db:"id"`
+	Id         string `db:"id,omitempty" `
 	CommonName string `db:"common_name"`
 	Genus      string `db:"genus"`
 	Species    string `db:"species"`
