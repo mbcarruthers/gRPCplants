@@ -61,11 +61,11 @@ Protocol files will the written into <code>/plants/proto</code> directory.
 
 5) to run the actual code
 
-    <code>./bin/plants/server</code<br/>
-    <code>./bin/plants/client<code><br/>
+    <code> ./bin/plants/server </code><br>
+    <code> ./bin/plants/client </code>
 
 6) To take docker containers down
     
-    <code>make docker_down</code>
+    <code> make docker_down </code>
 
 ***Note:each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution***
