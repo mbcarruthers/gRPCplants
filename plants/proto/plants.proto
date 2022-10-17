@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package plants;
+
+option go_package = "github.com/mbcarruthers/gRPCplants";
+
+import "google/protobuf/empty.proto";
+
+message Plant {
+  string id = 1;
+  string common_name = 2;
+  string genus = 3;
+  string species = 4;
+}
+
+message PlantId {
+  string id = 1;
+}
+
+service PlantService {
+  rpc CreatePlant(Plant) returns (PlantId);
+  rpc ReadPlant(PlantId) returns (Plant);
+  rpc UpdatePlant(Plant) returns (google.protobuf.Empty);
+  rpc DeletePlant(PlantId) returns (google.protobuf.Empty);
+  rpc ListPlants(google.protobuf.Empty) returns (stream Plant);
+}
