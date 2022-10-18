@@ -18,6 +18,7 @@ func listPlants(c pb.PlantServiceClient) {
 		log.Fatalf("Error while calling list plants \n %s \n",
 			err.Error())
 	}
+	// stream content from the server
 	for {
 		res, err := stream.Recv()
 		if err == io.EOF {
