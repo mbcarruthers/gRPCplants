@@ -73,6 +73,5 @@ Protocol files will the written into <code>/plants/proto</code> directory.
 
 Todo:
 1) Create SQL Dump
-2) Return status codes from errors
-3) Make sure the only fatalf's are on the client
-4) Make actual test files.
+2) Make sure the only fatalf's are on the client
+3) Make actual test files.

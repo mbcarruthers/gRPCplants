@@ -44,7 +44,7 @@ func main() {
 		Id: "8a2046b0-51ab-4fe2-9aa8-516cd5876ead", // the Id of the Seabeach-evening primrose
 	}
 	// should find the Seabeach-evening primrose
-	secondPlantFromDatabase := readPlant(plantServiceClient, newPlantId)
+	secondPlantFromDatabase, _ := readPlant(plantServiceClient, newPlantId)
 	// found the seabeach evening primrose
 	secondPlantFromDatabase.CommonName = "Primrose seabach evening"
 	if _, err := updatePlant(plantServiceClient, secondPlantFromDatabase); err != nil {

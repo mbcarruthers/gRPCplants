@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 	pb "github.com/mbcarruthers/gRPCplants/plants/proto"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"log"
 )
 
@@ -21,10 +23,9 @@ func (s *PlantService) CreatePlant(ctx context.Context, plant *pb.Plant) (*pb.Pl
 	res, err := s.session.Collection("native.plants").Insert(insertPlant)
 
 	if err != nil {
-		log.Printf("Error inserting %+v \n %s\n",
-			insertPlant,
-			err.Error())
-		return nil, err
+		return nil, status.Errorf(codes.Internal, // return code [13]
+			fmt.Sprintf("Error inserting\n %s\n",
+				err.Error()))
 	} else {
 		return &pb.PlantId{
 			Id: fmt.Sprintf("%v", res.ID()),

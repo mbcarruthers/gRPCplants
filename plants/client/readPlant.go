@@ -8,14 +8,13 @@ import (
 
 // readPlant client implemenation of the readPlant gRPC function to retrieve
 // a single plant from the database given its UUID
-func readPlant(c pb.PlantServiceClient, plantId *pb.PlantId) *pb.Plant {
+func readPlant(c pb.PlantServiceClient, plantId *pb.PlantId) (*pb.Plant, error) {
 	log.Println("readPlant(client) invoked")
 	resultPlant, err := c.ReadPlant(context.Background(), plantId)
 
 	// if there is a server-side error finding the plant
 	if err != nil {
-		log.Fatalf("Error finding plant\n %s\n",
-			err.Error())
+		return nil, err
 	}
-	return resultPlant
+	return resultPlant, nil
 }
