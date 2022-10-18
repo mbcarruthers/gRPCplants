@@ -14,8 +14,7 @@ func createPlant(c pb.PlantServiceClient, plant *pb.Plant) (*pb.PlantId, error) 
 
 	plantId, err := c.CreatePlant(context.Background(), plant)
 	if err != nil {
-		log.Fatalf("Error creating plant\n %s\n",
-			err.Error())
+		return nil, err
 	}
 	return plantId, nil
 }
