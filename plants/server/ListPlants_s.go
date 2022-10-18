@@ -13,8 +13,9 @@ func (s *PlantService) ListPlants(in *empty.Empty, stream pb.PlantService_ListPl
 	err := s.session.Collection("native.plants").Find().All(&plants)
 
 	if err != nil {
-		log.Fatalf("Error With collection.Find(): \n %s\n",
+		log.Printf("Error With collection.Find(): \n %s\n",
 			err.Error())
+		return err
 	}
 	// stream plants to the client
 	for _, plant := range plants {
