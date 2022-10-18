@@ -55,7 +55,7 @@ Protocol files will the written into <code>/plants/proto</code> directory.
 
     <code>make build_client</code>
 
-4) Start Docker containers(Note:for now just run the contents of db.sql in the interactive terminal to generate the database & table. real simple)
+4) Start Docker containers &nbsp;(***Note:for now just run the contents of db.sql in the interactive terminal to generate the database & table.Simple but need have import instructions***)
 
     <code>make docker_up</code>
 
