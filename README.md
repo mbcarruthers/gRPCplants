@@ -1,6 +1,6 @@
 # gRPC plants
 
-CockroachDB single-node database, hosted in Docker. To retreive information within the database for gRPC client calls
+CockroachDB single-node database, hosted in Docker with a gRPC server to access the database from client calls.
 
 ---
 
@@ -68,6 +68,11 @@ Protocol files will the written into <code>/plants/proto</code> directory.
     
     <code> make docker_down </code>
 
-***Note:each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution***
+***Note: each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution*** <br/>
+***Note: no SSL enabled because this is just a working example.***<br/>
 
-TODO: ... Create SQL dump 
+Todo:
+1) Create SQL Dump
+2) Return status codes from errors
+3) Make sure the only fatalf's are on the client
+4) Make actual test files.

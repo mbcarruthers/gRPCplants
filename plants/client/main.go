@@ -46,5 +46,8 @@ func main() {
 	// should find the Seabeach-evening primrose
 	secondPlantFromDatabase := readPlant(plantServiceClient, newPlantId)
 	// found the seabeach evening primrose
-	log.Printf("%+v \n", secondPlantFromDatabase)
+	secondPlantFromDatabase.CommonName = "Primrose seabach evening"
+	if _, err := updatePlant(plantServiceClient, secondPlantFromDatabase); err != nil {
+		log.Println(err)
+	}
 }

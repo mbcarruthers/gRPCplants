@@ -11,6 +11,7 @@ import (
 func readPlant(c pb.PlantServiceClient, plantId *pb.PlantId) *pb.Plant {
 	log.Println("readPlant(client) invoked")
 	resultPlant, err := c.ReadPlant(context.Background(), plantId)
+
 	// if there is a server-side error finding the plant
 	if err != nil {
 		log.Fatalf("Error finding plant\n %s\n",
