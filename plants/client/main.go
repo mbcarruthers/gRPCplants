@@ -50,4 +50,10 @@ func main() {
 	if _, err := updatePlant(plantServiceClient, secondPlantFromDatabase); err != nil {
 		log.Println(err)
 	}
+	if err := deletePlant(plantServiceClient, plantId); err != nil {
+		log.Println(err)
+	} else {
+		log.Printf("deleted\n %+v\n",
+			plantId)
+	}
 }
