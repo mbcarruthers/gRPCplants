@@ -38,4 +38,9 @@ func main() {
 		})
 	log.Printf("Plant with Id:%s, has been created\n",
 		plantId.Id)
+	time.Sleep(time.Second) // temporary wait time
+	plantFromDatabase := readPlant(plantServiceClient, plantId)
+	log.Printf("%+v  \n",
+		plantFromDatabase)
+
 }
