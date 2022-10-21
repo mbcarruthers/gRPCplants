@@ -55,23 +55,26 @@ Protocol files will the written into <code>/plants/proto</code> directory.
 
     <code>make build_client</code>
 
-4) Start Docker containers &nbsp;(***Note:for now just run the contents of db.sql in the interactive terminal to generate the database & table.Simple but need have import instructions***)
+4) Start Docker containers &nbsp;
 
     <code>make docker_up</code>
 
-5) to run the actual code
+5) Upload current SQL to docker database<br/>
+      <code> sudo docker container exec -i ${INSERT_CONTAINER_ID}  ./cockroach sql --insecure < db.sql </code>
+
+6) To run the actual code
 
     <code> ./bin/plants/server </code><br>
     <code> ./bin/plants/client </code>
 
-6) To take docker containers down
+7) To take docker containers down
     
     <code> make docker_down </code>
 
 ***Note: each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution*** <br/>
 ***Note: no SSL enabled because this is just a working example.***<br/>
+***Note: Must have protobuf(protoc), protoc-gen-go,protoc-gen-go-grpc installed and added to `$PATH` bash variable.
+
 
 Todo:
-1) Create SQL Dump
-2) Make sure the only fatalf's are on the client
-3) Make actual test files.
+Create testing files
