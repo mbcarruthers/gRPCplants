@@ -8,11 +8,13 @@ import (
 	"github.com/upper/db/v4"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"log"
 )
 
+// Deletes a Plant in the database by finding it with the plants id. If there in an error it returns
+// (&empty.Empty{}, err) if it was successful it returns (&empty.Empty{}, nil)
+// error code 5 means that the plant was not found, either it was deleted already or there is something
+// wrong with the id.
 func (s *PlantService) DeletePlant(ctx context.Context, plantId *pb.PlantId) (*empty.Empty, error) {
-	log.Println("DeletePlant(server) invoked")
 
 	if err := s.session.Collection("native.plants").Find(db.Cond{"id": plantId.Id}).Delete(); err != nil {
 		return &empty.Empty{}, status.Errorf(codes.NotFound, // return code [5]

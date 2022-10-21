@@ -53,7 +53,7 @@ func main() {
 	if err := deletePlant(plantServiceClient, plantId); err != nil {
 		log.Println(err)
 	} else {
-		log.Printf("deleted\n %+v\n",
+		log.Printf("deleted plant with %+v\n",
 			plantId)
 	}
 }

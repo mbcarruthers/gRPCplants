@@ -11,8 +11,6 @@ import (
 // listPlants: Lists the plants within the database thus far.
 // As of now only prints the plants to the console
 func listPlants(c pb.PlantServiceClient) { // Todo: Needs to return a slice of *pb.Plants
-	log.Println("List plants(client) invoked")
-
 	stream, err := c.ListPlants(context.Background(), &empty.Empty{})
 	if err != nil {
 		log.Fatalf("Error while calling list plants \n %s \n",

@@ -55,6 +55,11 @@ func main() {
 		// create new gRPC service for database
 		plantService := NewPlantService(session)
 		defer plantService.session.Close()
+		defer func() {
+			if r := recover(); r != nil {
+				log.Println("[Panic]:  %+v \n", r)
+			}
+		}()
 
 		log.Println("Connected to Cockroachdb")
 

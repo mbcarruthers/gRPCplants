@@ -10,7 +10,6 @@ import (
 // based upon its Id. Returns the updated plant if successful. If not successful
 // it will return (nil, error).
 func updatePlant(c pb.PlantServiceClient, plant *pb.Plant) (*pb.Plant, error) {
-	log.Println("updatePlant(client) called")
 	_, err := c.UpdatePlant(context.Background(), plant)
 	if err != nil {
 		log.Printf("Error updating \n %s\n",

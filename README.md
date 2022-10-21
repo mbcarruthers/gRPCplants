@@ -8,11 +8,12 @@ CockroachDB single-node database, hosted in Docker with a gRPC server to access 
 
 Cockroachdb Single node database run in Docker container. Can be executed via the Makefile commands.
 
-Database Name: ***native***
+Database Name: (***native***)
 
 Table(s):
 
 plants (***native.plants***):
+
 ```
 column_name   | data_type | is_nullable |  column_default   | generation_expression |  indices  | is_hidden
 +-------------+-----------+-------------+-------------------+-----------------------+-----------+-----------+
@@ -36,6 +37,8 @@ species       | STRING    |    false    | NULL              |                   
 To Get into the interactive terminal within the cockroachdb:
 
 `sudo docker exec -it ${CONTAINER_ID} ./cockroach sql --insecure`
+
+`exit` to exit the interactive terminal.
 
 ## To Run
 
@@ -65,6 +68,7 @@ Protocol files will the written into <code>/plants/proto</code> directory.
 
 
 5) Upload current SQL to docker database<br/>
+
       <code> sudo docker container exec -i ${INSERT_CONTAINER_ID}  ./cockroach sql --insecure < db.sql </code>
 
 

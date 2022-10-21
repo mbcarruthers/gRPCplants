@@ -6,14 +6,11 @@ import (
 	pb "github.com/mbcarruthers/gRPCplants/plants/proto"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"log"
 )
 
 // CreatePlants: Inserts a new Plant in the cockroach database, disregards any pre-implementation of an id
 // An Id is created that is IETF REF-4122 complient.
 func (s *PlantService) CreatePlant(ctx context.Context, plant *pb.Plant) (*pb.PlantId, error) {
-	log.Println("CreatePlant(server) invoked")
-
 	insertPlant := &Plant{
 		CommonName: plant.CommonName,
 		Genus:      plant.Genus,
@@ -21,7 +18,6 @@ func (s *PlantService) CreatePlant(ctx context.Context, plant *pb.Plant) (*pb.Pl
 	}
 
 	res, err := s.session.Collection("native.plants").Insert(insertPlant)
-
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, // return code [13]
 			fmt.Sprintf("Error inserting\n %s\n",
