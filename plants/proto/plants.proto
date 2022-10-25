@@ -13,14 +13,15 @@ message Plant {
   string species = 4;
 }
 
+// message for when only the plants id is needed
 message PlantId {
   string id = 1;
 }
 
 service PlantService {
-  rpc CreatePlant(Plant) returns (PlantId);
-  rpc ReadPlant(PlantId) returns (Plant);
-  rpc UpdatePlant(Plant) returns (google.protobuf.Empty);
-  rpc DeletePlant(PlantId) returns (google.protobuf.Empty);
-  rpc ListPlants(google.protobuf.Empty) returns (stream Plant);
+  rpc CreatePlant(Plant) returns (PlantId); // Create a single plant
+  rpc ReadPlant(PlantId) returns (Plant); // read a single plant found by it's id
+  rpc UpdatePlant(Plant) returns (google.protobuf.Empty); // update a single plants
+  rpc DeletePlant(PlantId) returns (google.protobuf.Empty); // delete a single plant by its Id
+  rpc ListPlants(google.protobuf.Empty) returns (stream Plant); // List all plants
 }
