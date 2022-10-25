@@ -82,6 +82,20 @@ Protocol files will the written into <code>/plants/proto</code> directory.
     
     <code> make docker_down </code>
 
+---
+
+## gRPC endpoints 
+
+```
+                     Go                                                            Protocol Buffer
+CreatePlant(context.Context, *Plant) (*PlantId, error)                   rpc CreatePlant(Plant) returns (PlantId);
+ReadPlant(context.Context, *PlantId) (*Plant, error)                     rpc ReadPlant(PlantId) returns (Plant);
+UpdatePlant(context.Context, *Plant) (*empty.Empty, error)               rpc UpdatePlant(Plant) returns (google.protobuf.Empty);
+DeletePlant(context.Context, *PlantId) (*empty.Empty, error)             rpc DeletePlant(PlantId) returns (google.protobuf.Empty);
+ListPlants(*empty.Empty, PlantService_ListPlantsServer) error            rpc ListPlants(google.protobuf.Empty) returns (stream Plant);
+```
+
+---
 
 ***Note: each docker command is prefixed with 'sudo' because the system is assumed to be a Linux distribution*** <br/>
 ***Note: no SSL enabled because this is just a working example.***<br/>
