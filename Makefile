@@ -40,7 +40,7 @@ endif
 
 project := plants
 
-plants: $@
+plants: $@help 
 
 build_protoc: ## build proto files
 	protoc \
